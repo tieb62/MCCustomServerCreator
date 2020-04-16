@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports System.Net.NetworkInformation
 
-Module Fonctions
+Module Functions
 
     Function CheckInternet() As Boolean
 
