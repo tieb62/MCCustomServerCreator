@@ -1,6 +1,7 @@
 ﻿Public Class SelectServerDir
     Private Sub Browse_Click(sender As Object, e As EventArgs) Handles Browse.Click
-        ServerPath.Text = SelectDir.ShowDialog()
+        SelectDir.ShowDialog()
+        ServerPath.Text = SelectDir.SelectedPath
     End Sub
 
     Private Sub NextBtn_Click(sender As Object, e As EventArgs) Handles NextBtn.Click
