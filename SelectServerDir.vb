@@ -10,5 +10,19 @@
         Else
             MsgBox("Le chemin d'accès spécifié n'existe pas !", vbOKOnly + vbCritical + 4096, "Erreur")
         End If
+
+        'Redirection vers la bonne fenêtre selon le type de Serveur choisi précédemment (Vanilla, Forge, Spigot, Sponge)
+        Select Case Informations.ServerType
+            Case ServerTypes.VANILLA
+                Me.Hide()
+                Vanilla.Show()
+
+            Case ServerTypes.SPIGOT
+
+            Case ServerTypes.FORGE
+
+            Case ServerTypes.SPONGE
+
+        End Select
     End Sub
 End Class
