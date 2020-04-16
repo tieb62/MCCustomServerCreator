@@ -23,22 +23,45 @@ Partial Class Vanilla
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.VersionType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.VersionName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'Button1
         '
+        Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 25.0!)
         Me.Button1.Location = New System.Drawing.Point(12, 374)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(776, 64)
+        Me.Button1.Size = New System.Drawing.Size(275, 64)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "Suivant"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.VersionType, Me.VersionName})
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Location = New System.Drawing.Point(12, 12)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(275, 356)
+        Me.ListView1.TabIndex = 2
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        '
+        'VersionType
+        '
+        Me.VersionType.Text = "Type"
+        '
+        'VersionName
+        '
+        Me.VersionName.Text = "Nom"
         '
         'Vanilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(299, 450)
+        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Vanilla"
         Me.Text = "Vanilla"
@@ -47,4 +70,7 @@ Partial Class Vanilla
     End Sub
 
     Friend WithEvents Button1 As Button
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents VersionType As ColumnHeader
+    Friend WithEvents VersionName As ColumnHeader
 End Class
