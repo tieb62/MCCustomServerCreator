@@ -104,11 +104,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Fonctions.vb" />
+    <Compile Include="Downloader.Designer.vb">
+      <DependentUpon>Downloader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Downloader.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Functions.vb" />
+    <Compile Include="Informations.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectServerDir.Designer.vb">
+      <DependentUpon>SelectServerDir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectServerDir.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
@@ -138,8 +151,17 @@
     <Compile Include="ServerProperties.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Vanilla.Designer.vb">
+      <DependentUpon>Vanilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vanilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SelectServerDir.resx">
+      <DependentUpon>SelectServerDir.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServerProperties.resx">
       <DependentUpon>ServerProperties.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vanilla.resx">
+      <DependentUpon>Vanilla.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
