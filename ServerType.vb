@@ -6,11 +6,9 @@
     Public ReadOnly FORGE As String = "Forge"
     Public ReadOnly SPONGE As String = "Sponge"
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub Suivant_Click(sender As Object, e As EventArgs) Handles Suivant.Click
-
+    Private Sub SpongeRadio_CheckedChanged(sender As Object, e As EventArgs) Handles SpongeRadio.CheckedChanged
+        If SpongeRadio.Checked Then
+            MsgBox("Attention !" + vbNewLine + "Sponge est un MOD, cela aura donc pour effet de créer un serveur Forge." + vbNewLine + "Seuls les plugins fournis par Sponge pourront être installés !", vbOKOnly + vbExclamation + 4096, "Avertissement")
+        End If
     End Sub
 End Class

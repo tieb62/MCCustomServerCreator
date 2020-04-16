@@ -63,50 +63,10 @@ Namespace My.Resources
         '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Custom_Server() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Custom_Server", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property forge_0() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("forge_0", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property logogetbukkit___Copie() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("logogetbukkit___Copie", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property logoMCustomServerCreator() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("logoMCustomServerCreator", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property logoMCustomServerCreator1() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("logoMCustomServerCreator1", resourceCulture)
-                Return CType(obj,Byte())
             End Get
         End Property
         
@@ -117,56 +77,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("logoMCustomServerCreator2", resourceCulture)
                 Return CType(obj,System.Drawing.Icon)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property logoMCustomServerCreator21() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("logoMCustomServerCreator21", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property logospigot() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("logospigot", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property logosponge() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("logosponge", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property minecraft_silk_poster_3d_grass_logo() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("minecraft_silk_poster_3d_grass_logo", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property seaubukkit() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("seaubukkit", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

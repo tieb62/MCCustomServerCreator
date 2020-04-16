@@ -118,38 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Custom_Server" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Custom-Server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="forge_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forge_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logogetbukkit___Copie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logogetbukkit - Copie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logoMCustomServerCreator" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoMCustomServerCreator.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoMCustomServerCreator1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoMCustomServerCreator.pfi;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="logoMCustomServerCreator2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoMCustomServerCreator2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoMCustomServerCreator21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoMCustomServerCreator2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logospigot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logospigot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logosponge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logosponge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minecraft_silk_poster_3d_grass_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minecraft-silk-poster-3d-grass-logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="seaubukkit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seaubukkit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Starter_CraftBukkit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Starter CraftBukkit.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
