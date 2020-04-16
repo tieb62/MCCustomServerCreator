@@ -17,7 +17,7 @@
         ElseIf SpongeRadio.Checked Then
             Informations.ServerType = ServerTypes.SPONGE
         End If
-        Me.Close()
+        Me.Hide()
         SelectServerDir.Show()
     End Sub
 End Class
