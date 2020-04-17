@@ -36,12 +36,15 @@ Public Class Downloader
         DownloadBar.Style = ProgressBarStyle.Continuous
         Dim Client As New WebClient
         AddHandler Client.DownloadProgressChanged, AddressOf Client_ProgressChanged
-#Disable Warning BC42104 ' La variable est utilisée avant de se voir attribuer une valeur
+
         If File.Exists(Informations.ServerDir + "\server.jar") Then
             File.Delete(Informations.ServerDir + "\server.jar")
         End If
+
+#Disable Warning BC42104 ' La variable est utilisée avant de se voir attribuer une valeur
         Await Client.DownloadFileTaskAsync(New Uri(DownloadLink), Informations.ServerDir + "\server.jar")
 #Enable Warning BC42104 ' La variable est utilisée avant de se voir attribuer une valeur
+
         InfoLabel.Text = "Téléchargement terminé !"
 
         'On à fini le Téléchargement, on affiche le Formulaire suivant et on cache ce Formulaire
