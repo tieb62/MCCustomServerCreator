@@ -59,7 +59,13 @@ Public Class Vanilla
 
     Private Sub VersionsList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles VersionsList.SelectedIndexChanged
         If VersionsList.SelectedItems.Count = 1 Then
-            Downloader.DownloadVanillaServer(VersionsList.SelectedItems.Item(0).Name, Me, Eula)
+            NextBtn.Enabled = True
+        Else
+            NextBtn.Enabled = False
         End If
+    End Sub
+
+    Private Sub NextBtn_Click(sender As Object, e As EventArgs) Handles NextBtn.Click
+        Downloader.DownloadVanillaServer(VersionsList.SelectedItems.Item(0).Text, Me, Eula)
     End Sub
 End Class
