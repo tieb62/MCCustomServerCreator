@@ -42,6 +42,7 @@ Public Class Vanilla
                             VersionName = version.Value
                         Case "type"
                             versionInfo.SubItems.Add(version.Value)
+                        Case "url"
                             VersionLink = version.Value
                     End Select
                 Next
