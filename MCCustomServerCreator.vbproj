@@ -172,6 +172,9 @@
     <EmbeddedResource Include="Downloader.resx">
       <DependentUpon>Downloader.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Eula.resx">
+      <DependentUpon>Eula.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectServerDir.resx">
       <DependentUpon>SelectServerDir.vb</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoMCustomServerCreator2.ico" />
+    <None Include="Resources\eula.txt" />
     <None Include="Resources\Image1.png" />
     <None Include="Resources\9764.wav" />
     <None Include="Resources\error.bmp" />
