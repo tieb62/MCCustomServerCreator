@@ -16,13 +16,5 @@ Module Functions
     End Function
 
 
-    Function GetHostName() As String
-
-        Dim hostname As String = System.Net.Dns.GetHostName()
-
-        Return hostname
-
-    End Function
-
 
 End Module
