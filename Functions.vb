@@ -3,7 +3,7 @@ Imports System.Net.NetworkInformation
 
 Module Functions
 
-    Function CheckInternet() As Boolean
+    Public Function CheckInternet() As Boolean
 
         Try
             Return My.Computer.Network.Ping("www.google.com")
