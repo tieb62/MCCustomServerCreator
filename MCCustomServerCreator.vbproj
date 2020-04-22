@@ -133,6 +133,12 @@
     <Compile Include="SelectServerDir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Spigot.Designer.vb">
+      <DependentUpon>Spigot.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Spigot.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </Compile>
