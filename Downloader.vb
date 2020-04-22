@@ -55,4 +55,8 @@ Public Class Downloader
     Private Sub Client_ProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
         DownloadBar.Value = e.ProgressPercentage
     End Sub
+
+    Private Sub Downloader_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ConfirmClose(e)
+    End Sub
 End Class

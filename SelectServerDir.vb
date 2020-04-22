@@ -14,6 +14,8 @@
                     Vanilla.Show()
 
                 Case ServerTypes.SPIGOT
+                    Me.Hide()
+                    Spigot.Show()
 
                 Case ServerTypes.FORGE
 
@@ -29,5 +31,9 @@
         If e.KeyCode = Keys.Enter Then
             NextBtn.PerformClick()
         End If
+    End Sub
+
+    Private Sub SelectServerDir_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ConfirmClose(e)
     End Sub
 End Class

@@ -20,4 +20,8 @@
         Me.Hide()
         SelectServerDir.Show()
     End Sub
+
+    Private Sub ServerType_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ConfirmClose(e)
+    End Sub
 End Class
