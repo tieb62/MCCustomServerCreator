@@ -184,6 +184,9 @@
     <EmbeddedResource Include="SelectServerDir.resx">
       <DependentUpon>SelectServerDir.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Spigot.resx">
+      <DependentUpon>Spigot.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </EmbeddedResource>
