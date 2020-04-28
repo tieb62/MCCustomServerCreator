@@ -11,17 +11,17 @@ Public Class Vanilla
 
     Private Sub UpdateVersionList()
         If CheckInternet() Then
-            If File.Exists(Informations.ManifestDownloadPath) Then
-                File.Delete(Informations.ManifestDownloadPath)
+            If File.Exists(Informations.VanillaManifestDownloadPath) Then
+                File.Delete(Informations.VanillaManifestDownloadPath)
             End If
             Try
-                My.Computer.Network.DownloadFile(Informations.ManifestURL, Informations.ManifestDownloadPath)
+                My.Computer.Network.DownloadFile(Informations.VanillaManifestURL, Informations.VanillaManifestDownloadPath)
 #Disable Warning CA1031 ' Do not catch general exception types
             Catch ex As Exception
                 MsgBox("Une erreur est survenue lors de l'obtention de la liste des versions :" + vbNewLine + ex.Message, vbOKOnly + vbCritical + 4096, "Erreur")
 #Enable Warning CA1031 ' Do not catch general exception types
             End Try
-            Dim VersionManifestJSON As String = File.ReadAllText(Informations.ManifestDownloadPath)
+            Dim VersionManifestJSON As String = File.ReadAllText(Informations.VanillaManifestDownloadPath)
 
 
             Dim obj As JObject = JObject.Parse(VersionManifestJSON)
