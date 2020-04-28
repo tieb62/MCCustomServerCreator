@@ -25,6 +25,7 @@ Partial Class Spigot
         Me.SpigotVersionsListBox = New System.Windows.Forms.ListBox()
         Me.NextBtn = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.MissingVersion = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'SpigotVersionsListBox
@@ -35,15 +36,16 @@ Partial Class Spigot
         Me.SpigotVersionsListBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.SpigotVersionsListBox.ItemHeight = 18
         Me.SpigotVersionsListBox.Items.AddRange(New Object() {"Dernière Version"})
-        Me.SpigotVersionsListBox.Location = New System.Drawing.Point(12, 46)
+        Me.SpigotVersionsListBox.Location = New System.Drawing.Point(13, 46)
         Me.SpigotVersionsListBox.Name = "SpigotVersionsListBox"
         Me.SpigotVersionsListBox.Size = New System.Drawing.Size(215, 326)
         Me.SpigotVersionsListBox.TabIndex = 1
         '
         'NextBtn
         '
+        Me.NextBtn.Enabled = False
         Me.NextBtn.Font = New System.Drawing.Font("Comic Sans MS", 20.0!)
-        Me.NextBtn.Location = New System.Drawing.Point(12, 386)
+        Me.NextBtn.Location = New System.Drawing.Point(13, 397)
         Me.NextBtn.Name = "NextBtn"
         Me.NextBtn.Size = New System.Drawing.Size(215, 52)
         Me.NextBtn.TabIndex = 2
@@ -60,11 +62,23 @@ Partial Class Spigot
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Choisissez la version de Spigot :"
         '
+        'MissingVersion
+        '
+        Me.MissingVersion.AutoSize = True
+        Me.MissingVersion.Font = New System.Drawing.Font("Comic Sans MS", 10.0!)
+        Me.MissingVersion.Location = New System.Drawing.Point(87, 375)
+        Me.MissingVersion.Name = "MissingVersion"
+        Me.MissingVersion.Size = New System.Drawing.Size(141, 19)
+        Me.MissingVersion.TabIndex = 4
+        Me.MissingVersion.TabStop = True
+        Me.MissingVersion.Text = "Version manquante ?"
+        '
         'Spigot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(240, 450)
+        Me.ClientSize = New System.Drawing.Size(240, 462)
+        Me.Controls.Add(Me.MissingVersion)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.NextBtn)
         Me.Controls.Add(Me.SpigotVersionsListBox)
@@ -78,4 +92,5 @@ Partial Class Spigot
     Friend WithEvents SpigotVersionsListBox As ListBox
     Friend WithEvents NextBtn As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents MissingVersion As LinkLabel
 End Class

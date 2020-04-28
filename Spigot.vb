@@ -17,4 +17,25 @@ Public Class Spigot
             Application.Exit()
         End If
     End Sub
+
+    Private Sub MissingVersion_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles MissingVersion.LinkClicked
+        'TODO: Ouvrir l'aide "Une Version Manque ?"
+    End Sub
+
+    Private Sub NextBtn_Click(sender As Object, e As EventArgs) Handles NextBtn.Click
+        'Si c'est le premier élément qui est sélectionné (Dernière Version) on build "latest" sinon on build la version sélectionnée
+        If SpigotVersionsListBox.SelectedIndex = 0 Then
+            Downloader.BuildSpigot("latest", Me, ServerProperties)
+        Else
+            Downloader.BuildSpigot(SpigotVersionsListBox.SelectedItem.ToString(), Me, ServerProperties)
+        End If
+    End Sub
+
+    Private Sub SpigotVersionsListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SpigotVersionsListBox.SelectedIndexChanged
+        If SpigotVersionsListBox.SelectedItems.Count > 0 Then
+            NextBtn.Enabled = True
+        Else
+            NextBtn.Enabled = False
+        End If
+    End Sub
 End Class
