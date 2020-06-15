@@ -39,5 +39,4 @@ Module Functions
 #Enable Warning CA1031 ' Do not catch general exception types
         End Try
     End Sub
-
 End Module
