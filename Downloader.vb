@@ -4,11 +4,17 @@ Imports System.Net
 Imports Newtonsoft.Json.Linq
 
 Public Class Downloader
+
+    Private ReadOnly originalSize = New Size(1044, 140)
+    Private ReadOnly detailsSize = New Size(1044, 140)
+
     Public Async Sub DownloadVanillaServer(ByVal VersionName As String, ByVal Invoker As Form, ByVal NextForm As Form)
+        DisableDetails()
         'On masque le Formulaire qui a appelé la Fonction et on affiche ce Formulaire
         Invoker.Hide()
         Me.Show()
-        InfoLabel.Text = "Searching " + VersionName + " ..."
+        InfoLabel.Text = "Recherche de la " + VersionName + " ..."
+        Me.Text = "Recherche de la " + VersionName + " ..."
 
         'On récupère le lien de téléchargement du server.jar
         Dim VersionURL As String = Vanilla.Versions(VersionName)
@@ -32,7 +38,8 @@ Public Class Downloader
         Next
 
         'On télécharge le server.jar
-        InfoLabel.Text = "Downloading server.jar..."
+        InfoLabel.Text = "Téléchargement du server.jar..."
+        Me.Text = "Téléchargement du server.jar..."
         DownloadBar.Style = ProgressBarStyle.Continuous
         Dim Client As New WebClient
         AddHandler Client.DownloadProgressChanged, AddressOf Client_ProgressChanged
@@ -46,6 +53,7 @@ Public Class Downloader
 #Enable Warning BC42104 ' La variable est utilisée avant de se voir attribuer une valeur
 
         InfoLabel.Text = "Téléchargement terminé !"
+        Me.Text = "Téléchargement terminé !"
 
         'On à fini le Téléchargement, on affiche le Formulaire suivant et on cache ce Formulaire
         NextForm.Show()
@@ -53,10 +61,101 @@ Public Class Downloader
     End Sub
 
     Private Sub Client_ProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
-        DownloadBar.Value = e.ProgressPercentage
+        Dim incrementValue As Integer = e.ProgressPercentage - DownloadBar.Value
+        DownloadBar.Increment(incrementValue)
     End Sub
 
     Private Sub Downloader_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         ConfirmClose(e)
+    End Sub
+
+    Public Async Sub BuildSpigot(ByVal VersionName As String, ByVal Invoker As Form, ByVal NextForm As Form)
+        DisableDetails()
+        'On cache le formulaire appelant et on affiche ce formulaire
+        Invoker.Hide()
+        Me.Show()
+
+        'On vide le dossier de compilation si il contient des fichiers
+
+        InfoLabel.Text = "Vidage du dossier de compilation..."
+        Me.Text = "Vidage du dossier de compilation..."
+        DownloadBar.Style = ProgressBarStyle.Marquee
+        DownloadBar.Value = 0
+
+        If Directory.GetFileSystemEntries(Informations.SpigotBuildPath).Count() > 0 Then
+            For Each DirectoryString As String In Directory.GetDirectories(Informations.SpigotBuildPath)
+                Directory.Delete(DirectoryString, True)
+            Next
+            For Each FileString As String In Directory.GetFiles(Informations.SpigotBuildPath)
+                File.Delete(FileString)
+            Next
+        End If
+
+        'On Télécharge BuildTools.jar
+        InfoLabel.Text = "Téléchargement de BuildTools.jar"
+        Me.Text = "Téléchargement de BuildTools.jar"
+        DownloadBar.Style = ProgressBarStyle.Continuous
+        DownloadBar.Value = 0
+        Dim Client As New WebClient
+        AddHandler Client.DownloadProgressChanged, AddressOf Client_ProgressChanged
+
+        Await Client.DownloadFileTaskAsync(Informations.SpigotBuildToolsURL, Informations.SpigotBuildToolsPath)
+
+        'On Vérifie l'installation de Java
+        InfoLabel.Text = "Vérification de l'installation de Java..."
+        Me.Text = "Vérification de l'installation de Java..."
+        DownloadBar.Style = ProgressBarStyle.Marquee
+        DownloadBar.Value = 0
+
+        Dim checker As JavaChecker = New JavaChecker
+        Await checker.AsyncCheck()
+        Select Case checker.CurrentStatus
+            Case JavaChecker.JavaStatus.NOT_INSTALLED
+                MsgBox("Aucune installation de Java n'a été trouvée sur votre système !" + vbNewLine + "Installez Java et réessayez !", vbCritical + vbOKOnly, "Erreur")
+                Application.Exit()
+            Case JavaChecker.JavaStatus.VERIFY_ERROR
+                MsgBox("Une Erreur est survenue durant la vérification de votre installation de Java," + vbNewLine + "Veuillez réessayer, si le problème persiste, ouvrez une Issue sur le GitHub", vbOKOnly + vbCritical, "Erreur")
+                Application.Exit()
+        End Select
+
+        'On Build la Version de Spigot demandé dans le VersionName
+        InfoLabel.Text = "Compilation de Spigot " + VersionName
+        Me.Text = "Compilation de Spigot " + VersionName
+        DownloadBar.Style = ProgressBarStyle.Marquee
+        DownloadBar.Value = 0
+        'TODO: Build Spigot
+
+
+        'À la fin on cache ce formulaire et on affiche le formulaire suivant
+        Me.Hide()
+        NextForm.Show()
+    End Sub
+
+    Private Sub DetailsBtn_Click(sender As Object, e As EventArgs) Handles DetailsBtn.Click
+        If DetailsBtn.Text.Contains(">>") Then
+            Me.Size = detailsSize
+            Details.Visible = True
+            DetailsBtn.Text = "Détails <<"
+        Else
+            Me.Size = originalSize
+            Details.Visible = False
+            Details.Text = "Détails >>"
+        End If
+    End Sub
+
+    Private Sub EnableDetails()
+        Me.Size = originalSize
+        DetailsBtn.Cursor = Cursors.Arrow
+        DetailsBtn.Enabled = True
+    End Sub
+
+    Private Sub DisableDetails()
+        Me.Size = originalSize
+        DetailsBtn.Cursor = Cursors.No
+        DetailsBtn.Enabled = False
+    End Sub
+
+    Private Sub Downloader_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Size = originalSize
     End Sub
 End Class

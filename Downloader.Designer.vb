@@ -24,6 +24,8 @@ Partial Class Downloader
     Private Sub InitializeComponent()
         Me.DownloadBar = New System.Windows.Forms.ProgressBar()
         Me.InfoLabel = New System.Windows.Forms.Label()
+        Me.DetailsBtn = New System.Windows.Forms.Button()
+        Me.Details = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'DownloadBar
@@ -48,14 +50,43 @@ Partial Class Downloader
         Me.InfoLabel.Text = "Initialisation . . ."
         Me.InfoLabel.UseWaitCursor = True
         '
+        'DetailsBtn
+        '
+        Me.DetailsBtn.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Me.DetailsBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.DetailsBtn.Location = New System.Drawing.Point(912, 66)
+        Me.DetailsBtn.Name = "DetailsBtn"
+        Me.DetailsBtn.Size = New System.Drawing.Size(104, 26)
+        Me.DetailsBtn.TabIndex = 2
+        Me.DetailsBtn.Text = "Détails >>"
+        Me.DetailsBtn.UseVisualStyleBackColor = True
+        Me.DetailsBtn.UseWaitCursor = True
+        '
+        'Details
+        '
+        Me.Details.AcceptsReturn = True
+        Me.Details.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Details.Location = New System.Drawing.Point(12, 98)
+        Me.Details.Multiline = True
+        Me.Details.Name = "Details"
+        Me.Details.ReadOnly = True
+        Me.Details.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.Details.Size = New System.Drawing.Size(1004, 419)
+        Me.Details.TabIndex = 3
+        Me.Details.UseWaitCursor = True
+        Me.Details.Visible = False
+        '
         'Downloader
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 101)
+        Me.ClientSize = New System.Drawing.Size(1028, 534)
+        Me.Controls.Add(Me.Details)
+        Me.Controls.Add(Me.DetailsBtn)
         Me.Controls.Add(Me.InfoLabel)
         Me.Controls.Add(Me.DownloadBar)
         Me.Name = "Downloader"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Downloading . . ."
         Me.UseWaitCursor = True
         Me.ResumeLayout(False)
@@ -65,4 +96,6 @@ Partial Class Downloader
 
     Friend WithEvents DownloadBar As ProgressBar
     Friend WithEvents InfoLabel As Label
+    Friend WithEvents DetailsBtn As Button
+    Friend WithEvents Details As TextBox
 End Class
