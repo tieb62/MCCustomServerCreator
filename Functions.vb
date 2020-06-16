@@ -39,4 +39,14 @@ Module Functions
 #Enable Warning CA1031 ' Do not catch general exception types
         End Try
     End Sub
+
+    Public Function ExtractRessource(ByVal ressource As Object, ByVal path As String) As Boolean
+        Try
+            My.Computer.FileSystem.WriteAllBytes(path, ressource, False)
+            Return True
+        Catch ex As Exception
+            Throw New Exception("Impossible d'extraire la Ressource " + ressource.ToString + " !", ex)
+            Return False
+        End Try
+    End Function
 End Module
