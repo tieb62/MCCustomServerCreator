@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logoMCustomServerCreator2.ico" />
+    <None Include="Resources\BuildTools.jar" />
     <None Include="Resources\eula.txt" />
     <None Include="Resources\Image1.png" />
     <None Include="Resources\9764.wav" />

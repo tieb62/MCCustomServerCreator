@@ -61,6 +61,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Recherche une ressource localisée de type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property BuildTools() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("BuildTools", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Recherche une ressource localisée de type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property logoMCustomServerCreator() As System.Drawing.Bitmap
