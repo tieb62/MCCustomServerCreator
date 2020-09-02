@@ -5,11 +5,7 @@ Imports Newtonsoft.Json.Linq
 
 Public Class Downloader
 
-    Private ReadOnly originalSize = New Size(1044, 140)
-    Private ReadOnly detailsSize = New Size(1044, 140)
-
     Public Async Sub DownloadVanillaServer(ByVal VersionName As String, ByVal Invoker As Form, ByVal NextForm As Form)
-        DisableDetails()
         'On masque le Formulaire qui a appelé la Fonction et on affiche ce Formulaire
         Invoker.Hide()
         Me.Show()
@@ -70,7 +66,6 @@ Public Class Downloader
     End Sub
 
     Public Async Sub BuildSpigot(ByVal VersionName As String, ByVal Invoker As Form, ByVal NextForm As Form)
-        DisableDetails()
         'On cache le formulaire appelant et on affiche ce formulaire
         Invoker.Hide()
         Me.Show()
@@ -92,14 +87,12 @@ Public Class Downloader
         End If
 
         'On Télécharge BuildTools.jar
-        InfoLabel.Text = "Téléchargement de BuildTools.jar"
-        Me.Text = "Téléchargement de BuildTools.jar"
-        DownloadBar.Style = ProgressBarStyle.Continuous
+        InfoLabel.Text = "Extraction de BuildTools.jar"
+        Me.Text = "Extraction de BuildTools.jar"
+        DownloadBar.Style = ProgressBarStyle.Marquee
         DownloadBar.Value = 0
-        Dim Client As New WebClient
-        AddHandler Client.DownloadProgressChanged, AddressOf Client_ProgressChanged
 
-        Await Client.DownloadFileTaskAsync(Informations.SpigotBuildToolsURL, Informations.SpigotBuildToolsPath)
+        ExtractRessource(My.Resources.BuildTools, Informations.SpigotBuildToolsPath)
 
         'On Vérifie l'installation de Java
         InfoLabel.Text = "Vérification de l'installation de Java..."
@@ -123,39 +116,20 @@ Public Class Downloader
         Me.Text = "Compilation de Spigot " + VersionName
         DownloadBar.Style = ProgressBarStyle.Marquee
         DownloadBar.Value = 0
-        'TODO: Build Spigot
 
-
+        Dim BuildProcess As Process = New Process
+        BuildProcess.StartInfo.WorkingDirectory = Informations.SpigotBuildPath
+        BuildProcess.StartInfo.FileName = "java"
+        BuildProcess.StartInfo.Arguments = "-jar BuildTools.jar --rev " + VersionName
+        BuildProcess.Start()
+        BuildProcess.WaitForExit()
+        If (Not BuildProcess.ExitCode = 0) Then
+            MsgBox("Erreur durant la compilation, veuillez rééssayer, si le problème persiste, contactez les développeurs", vbOKOnly + vbCritical + 4096, "Erreur")
+            Application.Exit()
+        End If
+        MsgBox("Compilation réussie !", vbOKOnly + vbInformation + 4096, "Succès")
         'À la fin on cache ce formulaire et on affiche le formulaire suivant
         Me.Hide()
         NextForm.Show()
-    End Sub
-
-    Private Sub DetailsBtn_Click(sender As Object, e As EventArgs) Handles DetailsBtn.Click
-        If DetailsBtn.Text.Contains(">>") Then
-            Me.Size = detailsSize
-            Details.Visible = True
-            DetailsBtn.Text = "Détails <<"
-        Else
-            Me.Size = originalSize
-            Details.Visible = False
-            Details.Text = "Détails >>"
-        End If
-    End Sub
-
-    Private Sub EnableDetails()
-        Me.Size = originalSize
-        DetailsBtn.Cursor = Cursors.Arrow
-        DetailsBtn.Enabled = True
-    End Sub
-
-    Private Sub DisableDetails()
-        Me.Size = originalSize
-        DetailsBtn.Cursor = Cursors.No
-        DetailsBtn.Enabled = False
-    End Sub
-
-    Private Sub Downloader_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Size = originalSize
     End Sub
 End Class
