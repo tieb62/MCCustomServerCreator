@@ -16,8 +16,8 @@
 
     Public Sub SyncCheck()
         CurrentStatus = JavaStatus.VERIFYING
-        Dim JavaChecker As Process = Process.Start("java -version")
         Try
+            Dim JavaChecker As Process = Process.Start("java", "-version")
             JavaChecker.WaitForExit(30000)
             If JavaChecker.ExitCode <> 0 Then ' <> ==> "Différent de"
             CurrentStatus = JavaStatus.NOT_INSTALLED
