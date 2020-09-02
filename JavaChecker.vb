@@ -20,7 +20,7 @@
         Try
             JavaChecker.WaitForExit(30000)
             If JavaChecker.ExitCode <> 0 Then ' <> ==> "Différent de"
-                CurrentStatus = JavaStatus.NOT_INSTALLED
+            CurrentStatus = JavaStatus.NOT_INSTALLED
             Else
                 CurrentStatus = JavaStatus.INSTALLED
             End If
